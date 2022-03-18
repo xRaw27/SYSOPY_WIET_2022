@@ -23,7 +23,7 @@ run_valgrind_tests: set_valgrind clean_results wc_files_test save_and_remove_blo
 	cat $(RESULTS_PATH)
 
 clean:
-	rm -f *o *a main temp
+	rm -f *.o *.a *.so main temp
 	rm -rf $(TEST_DIR_PATH)
 
 clean_results:
