@@ -1,22 +1,22 @@
 
  Real time [s] | User time [s] | System time [s] | Timer description  
 ---------------|---------------|-----------------|--------------------------------------------------
-      0.050000 |      0.040000 |        0.000000 | wc 1 small (1MB) file 
-      0.210000 |      0.210000 |        0.000000 | wc 5 small (1MB) files 
-      0.420000 |      0.410000 |        0.000000 | wc 10 small (1MB) files 
-      0.650000 |      0.650000 |        0.000000 | wc 1 medium (16MB) file 
-      3.270000 |      3.260000 |        0.010000 | wc 5 medium (16MB) files 
-      6.540000 |      6.490000 |        0.050000 | wc 10 medium (16MB) files 
-      5.240000 |      5.200000 |        0.040000 | wc 1 large (128MB) file 
+      0.050000 |      0.050000 |        0.000000 | wc 1 small (1MB) file 
+      0.210000 |      0.200000 |        0.000000 | wc 5 small (1MB) files 
+      0.410000 |      0.410000 |        0.000000 | wc 10 small (1MB) files 
+      0.670000 |      0.670000 |        0.000000 | wc 1 medium (16MB) file 
+      3.260000 |      3.260000 |        0.000000 | wc 5 medium (16MB) files 
+      6.550000 |      6.520000 |        0.030000 | wc 10 medium (16MB) files 
+      5.280000 |      5.240000 |        0.030000 | wc 1 large (128MB) file 
 
  Real time [s] | User time [s] | System time [s] | Timer description  
 ---------------|---------------|-----------------|--------------------------------------------------
       0.000000 |      0.000000 |        0.000000 | save 1 block with result of wc 3 files 
-      0.010000 |      0.000000 |        0.000000 | save 1024 blocks with result of wc 3 files 
-      0.440000 |      0.410000 |        0.030000 | save 16384 blocks with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | save 1024 blocks with result of wc 3 files 
+      0.450000 |      0.410000 |        0.030000 | save 16384 blocks with result of wc 3 files 
       0.000000 |      0.000000 |        0.000000 | save 1 block with result of wc 100 files 
-      0.060000 |      0.050000 |        0.010000 | save 1024 blocks with result of wc 100 files 
-      1.170000 |      1.090000 |        0.080000 | save 16384 blocks with result of wc 100 files 
+      0.050000 |      0.050000 |        0.010000 | save 1024 blocks with result of wc 100 files 
+      1.180000 |      1.090000 |        0.080000 | save 16384 blocks with result of wc 100 files 
       0.000000 |      0.000000 |        0.000000 | remove 1 block with result of wc 3 files 
       0.000000 |      0.000000 |        0.000000 | remove 1024 blocks with result of wc 3 files 
       0.000000 |      0.000000 |        0.000000 | remove 16384 blocks with result of wc 3 files 
@@ -25,8 +25,8 @@
 
  Real time [s] | User time [s] | System time [s] | Timer description  
 ---------------|---------------|-----------------|--------------------------------------------------
-      4.060000 |      3.590000 |        0.440000 | save and remove 16384 blocks with result of wc 3 files, 10 times 
+      4.060000 |      3.620000 |        0.410000 | save and remove 16384 blocks with result of wc 3 files, 10 times 
 
  Real time [s] | User time [s] | System time [s] | Timer description  
 ---------------|---------------|-----------------|--------------------------------------------------
-      0.080000 |      0.000000 |        0.070000 | save and remove random large (128MB) temp file 
+      0.060000 |      0.000000 |        0.060000 | save and remove random large (128MB) temp file 
