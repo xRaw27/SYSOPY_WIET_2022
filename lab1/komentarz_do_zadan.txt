@@ -24,7 +24,7 @@ Komentarze do raportów:
     Komentarz do wyników:
      - Przy zapisywaniu bloków do tablicy czasy są w większości tak małe, że zmienna typu double reprezentuj je jako 0.
        Dopiero dla bardzo dużej liczby bloków rzędu kilku tysięcy, czasy są mierzalne.
-     - Z stosunku user time do system time możemy wnioskować, że program przez większość czasu działa w trybie użytkownika .
+     - Z stosunku user time do system time możemy wnioskować, że program przez większość czasu działa w trybie użytkownika.
 
     Zad 3a:
     Wyniki pomiarów dla różnego typu biblioteki znajdują się w pliku raport3a.txt
