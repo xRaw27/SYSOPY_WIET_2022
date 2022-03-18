@@ -1,0 +1,54 @@
+
+Polecenia make:
+    make clean           - usuwa zbędne pliki; działa w każdym zadaniu
+
+    Zad1:
+    make compile_static  - kompiluje i tworzy bibliotekę w wersji statycznej
+    make compile_shared  - kompiluje i tworzy bibliotekę w wersji współdzielonej
+
+    Zad2:
+    make all             - wykonuje testy (przed tym generuje losowo pliki do testów) i zapisuje zmierzone czasy w ./results/results.txt
+
+    Zad3a:
+    make all_static      - wykonuje testy dla biblioteki statycznej
+    make all_shared      - wykonuje testy dla biblioteki współdzielonej
+    make all_dynamic     - wykonuje testy dla biblioteki ładowanej dynamicznie
+
+    Zad3b:
+    make all_optimization_test  - wykonuje testy dla poziomów optymalizacji -O0 -O -O3 i -Os
+
+
+Komentarze do raportów:
+    Zad 2:
+    Wyniki pomiarów znajdują się w pliku raport2.txt
+    Komentarz do wyników:
+     - Przy zapisywaniu bloków do tablicy czasy są w większości tak małe, że zmienna typu double reprezentuj je jako 0.
+       Dopiero dla bardzo dużej liczby bloków rzędu kilku tysięcy, czasy są mierzalne.
+     - Z stosunku user time do system time możemy wnioskować, że program przez większość czasu działa w trybie użytkownika .
+
+    Zad 3a:
+    Wyniki pomiarów dla różnego typu biblioteki znajdują się w pliku raport3a.txt
+    Komentarz do wyników:
+     - Uzyskane czasy są prawie identyczne niezależnie od typu biblioteki.
+
+    Zad 3b:
+    Wyniki pomiarów dla różnych poziomów optymalizacji zapisane są w pliku raport3b.txt
+    Komentarz do wyników:
+     - Czasy wykonania dla zliczania plików praktycznie się nie różnią. Wynika to z tego, że zliczanie odbywa się poprzez
+       polecenie wc, więc optymalizacja samego programu nie ma na to większego wpływu.
+     - Najlepsze czasy uzyskano przy ustawieniu flagi -O.
+     - Czasy dla flag -O3 i -Os są porówynywalne, trochę gorsze niż dla -O.
+     - Dla domyślnej flagi -O0 czasy są około 3 razy gorsze w porównaniu do pozostałych poziomów optymalizacji.
+
+
+Opcje maina w zad2 i zad3
+    -c --create_table [size]            - tworzy tablicę wskaźników o zadanym rozmiarze, w której przechowywane będą bloki pamięci z wynikami
+    -w --wc_files [file1],[file2]...    - zapisuje wynik wc dla wskazanych plików do pliku tymczasowego (kolejne pliki powinny być rozdzielone przecinkami)
+    -b --save_block                     - zapisuje blok z zawartością tempa w tablicy na pierwszym wolnym miejscu
+    -n --save_block_n_times [n]         - zapisuje blok n razy
+    -r --remove_block [index]           - usuwa z pamięci blok pod wskazanym indeksem
+    -m --remove_m_blocks [m] [index]    - usuwa m kolejnych bloków, zaczynając od danego indeksu
+    -t --timer_start                    - rozpoczyna pomiar czasu
+    -e --timer_end [description]        - kończy pomiar czasu, jeśli został wcześniej wskazany plik results (flaga --save_results)
+                                          zmierzone czasy zapisywane są do tego pliku z podanym opisem
+    -s --save_results [file_path]       - ustawia ścieżkę pliku, do którego zapisywane będą pomiary

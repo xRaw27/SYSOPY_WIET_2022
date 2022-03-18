@@ -1,0 +1,32 @@
+
+ Real time [s] | User time [s] | System time [s] | Timer description  
+---------------|---------------|-----------------|--------------------------------------------------
+      0.040000 |      0.040000 |        0.000000 | wc 1 small (1MB) file 
+      0.210000 |      0.210000 |        0.000000 | wc 5 small (1MB) files 
+      0.410000 |      0.410000 |        0.000000 | wc 10 small (1MB) files 
+      0.660000 |      0.650000 |        0.000000 | wc 1 medium (16MB) file 
+      3.270000 |      3.260000 |        0.010000 | wc 5 medium (16MB) files 
+      6.880000 |      6.860000 |        0.020000 | wc 10 medium (16MB) files 
+      5.550000 |      5.520000 |        0.030000 | wc 1 large (128MB) file 
+
+ Real time [s] | User time [s] | System time [s] | Timer description  
+---------------|---------------|-----------------|--------------------------------------------------
+      0.000000 |      0.000000 |        0.000000 | save 1 block with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | save 1024 blocks with result of wc 3 files 
+      0.180000 |      0.140000 |        0.030000 | save 16384 blocks with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | save 1 block with result of wc 100 files 
+      0.020000 |      0.000000 |        0.010000 | save 1024 blocks with result of wc 100 files 
+      0.500000 |      0.380000 |        0.130000 | save 16384 blocks with result of wc 100 files 
+      0.000000 |      0.000000 |        0.000000 | remove 1 block with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | remove 1024 blocks with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | remove 16384 blocks with result of wc 3 files 
+      0.000000 |      0.000000 |        0.000000 | remove 1024 blocks with result of wc 100 files 
+      0.010000 |      0.000000 |        0.000000 | remove 16384 blocks with result of wc 100 files 
+
+ Real time [s] | User time [s] | System time [s] | Timer description  
+---------------|---------------|-----------------|--------------------------------------------------
+      1.730000 |      1.200000 |        0.490000 | save and remove 16384 blocks with result of wc 3 files, 10 times 
+
+ Real time [s] | User time [s] | System time [s] | Timer description  
+---------------|---------------|-----------------|--------------------------------------------------
+      0.080000 |      0.000000 |        0.080000 | save and remove random large (128MB) temp file 
