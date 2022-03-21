@@ -3,9 +3,6 @@
 //
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <string.h>
 
 #define BUFFER_SIZE 10240
@@ -28,13 +25,13 @@ struct result count_char(char *file_name, char c) {
     char buffer[BUFFER_SIZE];
     struct result res = {0, 0};
 
-    int in, count, p, chars_in_line;
-    in = open(file_name, O_RDONLY);
-    if (in == -1) {
+    int count, p, chars_in_line;
+    FILE *in = fopen(file_name, "r");
+    if (!in) {
         error("Error while opening input file");
     }
 
-    while((count = read(in, buffer, BUFFER_SIZE)) > 0) {
+    while((count = fread(buffer, 1, BUFFER_SIZE, in)) > 0) {
         if (count < BUFFER_SIZE) {
             buffer[count++] = '\n';
         }
@@ -53,10 +50,10 @@ struct result count_char(char *file_name, char c) {
                 }
             }
         }
-        lseek(in, p - count, SEEK_CUR);
+        fseek(in, p - count, SEEK_CUR);
     }
 
-    close(in);
+    fclose(in);
     return res;
 }
 

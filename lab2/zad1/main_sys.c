@@ -104,6 +104,10 @@ void remove_empty_lines(char *in_name, char *out_name, int buffer_size) {
         error("Error while opening input file");
     }
     out = open(out_name, O_WRONLY|O_TRUNC|O_CREAT, S_IRUSR|S_IWUSR);
+    if (out == -1) {
+        close(in);
+        error("Error while opening output file");
+    }
 
     while((count = read(in, in_buffer, buffer_size)) > 0) {
         if (count < buffer_size) {

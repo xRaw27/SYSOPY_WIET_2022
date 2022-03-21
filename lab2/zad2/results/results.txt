@@ -1,0 +1,13 @@
+
+TEST FILE SIZE: 
+209M ./test/in.txt
+
+Result times of read()/write() program with 10KB buffer:
+real 0.29
+user 0.26
+sys 0.02
+
+Result times of fread()/fwrite() program with 10KB buffer:
+real 0.21
+user 0.17
+sys 0.04
