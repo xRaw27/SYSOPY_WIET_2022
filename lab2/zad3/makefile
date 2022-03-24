@@ -22,4 +22,4 @@ compile:
 
 clean:
 	rm -f *.o *.a *.so $(MAIN_STAT) $(MAIN_NFTW)
-	rm -r $(RESULTS_DIR)
+	rm -rf $(RESULTS_DIR)
