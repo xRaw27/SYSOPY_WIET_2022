@@ -1,0 +1,60 @@
+
+Rectangle width 0.0000000123, number of child processes 1:
+Result = 3.14159265358928685429873439716175
+real 1.86
+user 1.86
+sys 0.00
+
+Rectangle width 0.0000000123, number of child processes 10:
+Result = 3.14159265358983397220526967430487
+real 1.86
+user 1.86
+sys 0.00
+
+Rectangle width 0.0000000123, number of child processes 100:
+Result = 3.14159265358980199778216046979651
+real 1.89
+user 1.86
+sys 0.02
+
+Rectangle width 0.0000000123, number of child processes 1000:
+Result = 3.14159265358979666871164226904511
+real 2.11
+user 1.96
+sys 0.15
+
+Rectangle width 0.000000001, number of child processes 1:
+Result = 3.14159265358970429815599345602095
+real 22.95
+user 22.94
+sys 0.00
+
+Rectangle width 0.000000001, number of child processes 10:
+Result = 3.14159265358981576454766582173761
+real 22.94
+user 22.94
+sys 0.00
+
+Rectangle width 0.000000001, number of child processes 100:
+Result = 3.14159265358979489235480286879465
+real 22.96
+user 22.94
+sys 0.01
+
+Rectangle width 0.000000001, number of child processes 1000:
+Result = 3.14159265358979311599796346854419
+real 23.19
+user 23.02
+sys 0.17
+
+Rectangle width 0.00001, number of child processes 10:
+Result = 3.14159265359812822637763929378707
+real 0.00
+user 0.00
+sys 0.00
+
+Rectangle width 0.00001, number of child processes 100:
+Result = 3.14159265359812422957475064322352
+real 0.02
+user 0.02
+sys 0.00
