@@ -1,0 +1,29 @@
+
+============ Test 1 - KILL ============
+
+./catcher
+[catcher] PID: 65210
+[catcher] Signals received: 472
+
+./sender 65210 1000 KILL
+[sender] Signals sent: 1000, Signals received: 233
+
+
+========== Test 2 - SIGQUEUE ==========
+
+./catcher
+[catcher] PID: 65282
+[catcher] Signals received: 984
+
+./sender 65282 1000 SIGQUEUE
+[sender] Signals sent: 1000, Signals received by catcher: 984, Signals received back by sender: 977
+
+
+=========== Test 3 - SIGRT ============
+
+./catcher
+[catcher] PID: 65353
+[catcher] Signals received: 346
+
+./sender 65353 1000 SIGRT
+[sender] Signals sent: 1000, Signals received: 120

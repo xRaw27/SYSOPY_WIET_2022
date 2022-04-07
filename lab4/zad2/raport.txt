@@ -1,0 +1,98 @@
+
+Komentarz:
+- Test 1: sprawdza działanie flagi SA_SIGINFO dla trzech różnych przypadków. Dla wszystkich program wypisuje kolejno
+  numer syngału, si_code, PID procesu z którego wysłano sygnał, si_uid oraz si_value.
+
+    - Przypadek 1: program wysyła sygnał do samego siebie za pomocą sigqueue z ustawionym si_value na 12345. Jak widać
+      odebrany sygnał posiada poprawną wartość si_value, dodatkowo wiemy że został wysłany za pomocą sigqueue
+      o czym świadczy wartość si_code równa -1.
+
+    - Przypadek 2: program wysyła sygnał za pomocą raise, zatem si_value nie jest ustawione i wynosi 0, natomiast
+      si_code jest równy -6.
+
+    - Przypadek 3: program tworzy child process za pomocą forka i z niego wysyła sygnał do parenta poleceniem kill.
+      Gdy sygnał jest wysłany za pomocą killa si_code wynosi 0. W tym przypadku widzimy też inne pid, niż poprzednio i
+      jest to pid child processu.
+
+- Test 2: sprawdza działanie flagi SA_NODEFER, flaga ta sprawia, że sygnał nie jest dodawany do maski podczas działania
+  handlera sygnału. Aby to sprawdzić wywołujemy raise() wewnątrz handlera. Gdy flaga nie jest ustawiona, handler kolejnego
+  sygnału zostanie wywołany dopiero po skończeniu poprzedniego co widać w wynikach. Gdy flaga jest ustawiona kolejny
+  handler zostaje wykonany w trakcie działania poprzedniego i w efekcie mamy ciąg wywołań przypominający rekurencję.
+
+- Test 3: sprawdza działanie flagi SA_NOCLDSTOP, gdy ustawimy tą flagę dla obsługi sygnału SIGCHLD to handler nie zostanie
+  wykonany w przypadku, gdy proces dziecka zostanie zatrzymany np. sygnałem SIGSTOP. Wyniki pokazują, że gdy flaga jest
+  ustawiona to gdy proces dziecka zakończy się poleceniem exit(EXIT_SUCCESS) handler zostanie wykonany, ale gdy dziecko
+  zakończy działanie poleceniem raise(SIGSTOP) to handler się nie wykona.
+
+
+Wyniki:
+
+========== Test 1 - SA_SIGINFO flag test ==========
+
+>>> sigqueue with si_val 12345 <<<
+Signal: 10
+  si_code: -1
+  si_pid: 72596
+  si_uid: 1000
+  si_value: 12345
+
+>>> raise <<<
+Signal: 10
+  si_code: -6
+  si_pid: 72596
+  si_uid: 1000
+  si_value: 0
+
+>>> sigkill in child process <<<
+Signal: 10
+  si_code: 0
+  si_pid: 72597
+  si_uid: 1000
+  si_value: 0
+
+========== Test 2 - SA_NODEFER flag test ==========
+
+>>> SA_NODEFER flag not set <<<
+Signal 10 start, counter: 0
+Signal 10 end, counter: 0
+Signal 10 start, counter: 1
+Signal 10 end, counter: 1
+Signal 10 start, counter: 2
+Signal 10 end, counter: 2
+Signal 10 start, counter: 3
+Signal 10 end, counter: 3
+Signal 10 start, counter: 4
+Signal 10 end, counter: 4
+
+>>> SA_NODEFER flag set <<<
+Signal 10 start, counter: 0
+Signal 10 start, counter: 1
+Signal 10 start, counter: 2
+Signal 10 start, counter: 3
+Signal 10 start, counter: 4
+Signal 10 end, counter: 4
+Signal 10 end, counter: 3
+Signal 10 end, counter: 2
+Signal 10 end, counter: 1
+Signal 10 end, counter: 0
+
+========== Test 3 - SA_NOCLDSTOP flag test (handler for SIGCHLD signal) ==========
+
+>>> SA_NOCLDSTOP flag not set, child exit success <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag not set, child receive sigstop <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag set, child exit success <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag set, child receive sigstop <<<
+waiting 1 second for signal...
+waiting ended

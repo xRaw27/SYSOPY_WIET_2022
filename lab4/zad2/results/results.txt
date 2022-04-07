@@ -1,0 +1,70 @@
+
+========== Test 1 - SA_SIGINFO flag test ==========
+
+>>> sigqueue with si_val 12345 <<<
+Signal: 10
+  si_code: -1
+  si_pid: 72596
+  si_uid: 1000
+  si_value: 12345
+
+>>> raise <<<
+Signal: 10
+  si_code: -6
+  si_pid: 72596
+  si_uid: 1000
+  si_value: 0
+
+>>> sigkill in child process <<<
+Signal: 10
+  si_code: 0
+  si_pid: 72597
+  si_uid: 1000
+  si_value: 0
+
+========== Test 2 - SA_NODEFER flag test ==========
+
+>>> SA_NODEFER flag not set <<<
+Signal 10 start, counter: 0
+Signal 10 end, counter: 0
+Signal 10 start, counter: 1
+Signal 10 end, counter: 1
+Signal 10 start, counter: 2
+Signal 10 end, counter: 2
+Signal 10 start, counter: 3
+Signal 10 end, counter: 3
+Signal 10 start, counter: 4
+Signal 10 end, counter: 4
+
+>>> SA_NODEFER flag set <<<
+Signal 10 start, counter: 0
+Signal 10 start, counter: 1
+Signal 10 start, counter: 2
+Signal 10 start, counter: 3
+Signal 10 start, counter: 4
+Signal 10 end, counter: 4
+Signal 10 end, counter: 3
+Signal 10 end, counter: 2
+Signal 10 end, counter: 1
+Signal 10 end, counter: 0
+
+========== Test 3 - SA_NOCLDSTOP flag test (handler for SIGCHLD signal) ==========
+
+>>> SA_NOCLDSTOP flag not set, child exit success <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag not set, child receive sigstop <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag set, child exit success <<<
+waiting 1 second for signal...
+Signal SIGCHLD handler, received signal: 17
+waiting ended
+
+>>> SA_NOCLDSTOP flag set, child receive sigstop <<<
+waiting 1 second for signal...
+waiting ended
