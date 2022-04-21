@@ -1,50 +1,50 @@
 
 IGNORE - FORK
-[PID 73758 process] SIGUSR1 signals are now ignored
-[PID 73758 process] Parent/main sends a signal
-[PID 73759 process] Child sends a signal
+[PID 86085 process] SIGUSR1 signals are now ignored
+[PID 86085 process] Parent/main sends a signal
+[PID 86086 process] Child sends a signal
 
 IGNORE - EXEC
-[PID 73762 process] SIGUSR1 signals are now ignored
-[PID 73762 process] Parent/main sends a signal
-[PID 73762 process] Exec program sends a signal
+[PID 86089 process] SIGUSR1 signals are now ignored
+[PID 86089 process] Parent/main sends a signal
+[PID 86089 process] Exec program sends a signal
 
 HANDLER - FORK
-[PID 73765 process] Handler for SIGUSR1 signals has been set
-[PID 73765 process] Parent/main sends a signal
-[PID 73765 process] [HANDLER] Received signal: 10
-[PID 73766 process] Child sends a signal
-[PID 73766 process] [HANDLER] Received signal: 10
+[PID 86092 process] Handler for SIGUSR1 signals has been set
+[PID 86092 process] Parent/main sends a signal
+[PID 86092 process] [HANDLER] Received signal: 10
+[PID 86093 process] Child sends a signal
+[PID 86093 process] [HANDLER] Received signal: 10
 
 HANDLER - EXEC
-[PID 73769 process] Handler for SIGUSR1 signals has been set
-[PID 73769 process] Parent/main sends a signal
-[PID 73769 process] [HANDLER] Received signal: 10
-[PID 73769 process] Exec program sends a signal
+[PID 86096 process] Handler for SIGUSR1 signals has been set
+[PID 86096 process] Parent/main sends a signal
+[PID 86096 process] [HANDLER] Received signal: 10
+[PID 86096 process] Exec program sends a signal
 User defined signal 1
 
 MASK - FORK
-[PID 73772 process] Mask has been set
-[PID 73772 process] Parent/main sent signal
-[PID 73772 process] Is SIGUSR1 pending (parent/main): YES
-[PID 73773 process] Child sent signal
-[PID 73773 process] Is SIGUSR1 pending (child): YES
+[PID 86099 process] Mask has been set
+[PID 86099 process] Parent/main sent signal
+[PID 86099 process] Is SIGUSR1 pending (parent/main): YES
+[PID 86100 process] Child sent signal
+[PID 86100 process] Is SIGUSR1 pending (child): YES
 
 MASK - EXEC
-[PID 73776 process] Mask has been set
-[PID 73776 process] Parent/main sent signal
-[PID 73776 process] Is SIGUSR1 pending (parent/main): YES
-[PID 73776 process] Exec program sent signal
-[PID 73776 process] Is SIGUSR1 pending (exec program): YES
+[PID 86103 process] Mask has been set
+[PID 86103 process] Parent/main sent signal
+[PID 86103 process] Is SIGUSR1 pending (parent/main): YES
+[PID 86103 process] Exec program sent signal
+[PID 86103 process] Is SIGUSR1 pending (exec program): YES
 
 PENDING - FORK
-[PID 73779 process] Mask has been set
-[PID 73779 process] Parent/main sent signal
-[PID 73779 process] Is SIGUSR1 pending (parent/main): YES
-[PID 73780 process] Is SIGUSR1 from parent pending (child): NO
+[PID 86106 process] Mask has been set
+[PID 86106 process] Parent/main sent signal
+[PID 86106 process] Is SIGUSR1 pending (parent/main): YES
+[PID 86107 process] Is SIGUSR1 from parent pending (child): NO
 
 PENDING - EXEC
-[PID 73783 process] Mask has been set
-[PID 73783 process] Parent/main sent signal
-[PID 73783 process] Is SIGUSR1 pending (parent/main): YES
-[PID 73783 process] Is SIGUSR1 from main program pending (exec program): YES
+[PID 86110 process] Mask has been set
+[PID 86110 process] Parent/main sent signal
+[PID 86110 process] Is SIGUSR1 pending (parent/main): YES
+[PID 86110 process] Is SIGUSR1 from main program pending (exec program): YES

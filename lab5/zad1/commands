@@ -1,0 +1,12 @@
+s1 = cat /etc/passwd | grep root
+s2 = ls | grep '^a'
+s3 = grep 11
+s4 = ps aux | grep loop
+s5 = head -n5
+s6 = sort -k2 -g -r
+
+s4 | s5
+s1
+s4
+s1 | s3
+s4 | s6 | s5 | s3

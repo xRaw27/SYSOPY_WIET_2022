@@ -1,0 +1,14 @@
+ *** TEST ./files/test_3_n_4200.txt POPRAWNY
+ *** TEST ./files/test_3_n_1000.txt POPRAWNY
+ *** TEST ./files/test_3_n_5.txt POPRAWNY
+ *** TEST ./files/test_2_n_4200.txt POPRAWNY
+ *** TEST ./files/test_2_n_1000.txt POPRAWNY
+ *** TEST ./files/test_2_n_5.txt POPRAWNY
+ *** TEST ./files/test_1_n_4200.txt POPRAWNY
+ *** TEST ./files/test_1_n_1000.txt POPRAWNY
+ *** TEST ./files/test_1_n_5.txt POPRAWNY
+
+Wnioski:
+ - dzięki zastosowaniu potoków nazwanych możliwa jest komunikacja procesów nie posiadających wspólnego przodka.
+ - używając funkcji flock() możliwe jest zapisysywanie i odczytywanie przez kilka procesów jednego pliku
+   bez utraty/duplikowania informacji.
