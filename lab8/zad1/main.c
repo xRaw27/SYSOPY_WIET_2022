@@ -115,6 +115,7 @@ void invert_colors(int num_threads, char *mode) {
     fprintf(times, "\nTOTAL EXECUTION TIME: %lf [s]\n\n", total_execution_time);
     printf("\nTOTAL EXECUTION TIME: %lf [s]\n\n", total_execution_time );
 
+    fclose(times);
     free(t_info);
 }
 
