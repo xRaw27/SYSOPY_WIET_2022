@@ -1,0 +1,7 @@
+Wnioski:
+ - Dzięki zastosowaniu semaforów możliwa jest synchronizacja dostępu do pamięciu wspólnej.
+ - Zarówno dla N, M < 5 jak i N, M > 5 synchronizacja dostępu do pieca i stołu działa poprawnie i podczas testów
+   nie zauważyłem żadnych błędów, które mogły by być spowodowane modyfikowaniem tablic przez kilka procesów jednocześnie.
+ - Dodatkowow użycie semaforów gwarantuje, że gdy tablica będzie pełna to proces będzie wstrzymany do momentu, aż
+   zwolni się w niej miejsce. Podobnie przy pobieranie elementu, gdy tablica będzie pusta, proces będzie czekał aż
+   pojawi się w niej jakiś element.

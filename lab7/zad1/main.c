@@ -17,8 +17,6 @@ void init_shared_mem_segment();
 
 void sigint_handler();
 
-void print_semaphore_set(int id, int n);
-
 
 int main(int argc, char **argv) {
     if (argc != 3) {
@@ -68,8 +66,6 @@ void init_sem_set() {
 
     arg.val = 0;
     if ((semctl(sem_id, EMPTY_TABLE_SEM, SETVAL, arg)) == -1) error("empty table sem setval error");
-
-    print_semaphore_set(sem_id, 5);
 }
 
 
@@ -83,7 +79,10 @@ void init_shared_mem_segment() {
     }
 
     oven = shmat(oven_shm_id, NULL, 0);
+    if (oven == (void *) -1) error("Error while attaching oven shared memory segment");
+
     table = shmat(table_shm_id, NULL, 0);
+    if (table == (void *) -1) error("Error while attaching table shared memory segment");
 
     oven->first = 0;
     oven->last = 0;
@@ -105,16 +104,4 @@ void sigint_handler() {
     shmctl(oven_shm_id, IPC_RMID, NULL);
     shmctl(table_shm_id, IPC_RMID, NULL);
     exit(EXIT_SUCCESS);
-}
-
-
-void print_semaphore_set(int id, int n) {
-    int value = 0;
-    printf("Semaphore %d values:\n", id);
-    for (int i = 0; i < n; ++i) {
-        if ((value = semctl(id, i, GETVAL)) == -1 ) {
-            error("getval error");
-        }
-        printf("  %d: %d\n", i, value);
-    }
 }
