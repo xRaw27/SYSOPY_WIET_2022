@@ -94,10 +94,11 @@ void invert_colors(int num_threads, char *mode) {
 
     FILE *times = fopen("./Times.txt", "a");
 
-    fprintf(times, "\n========== MODE: %s, THREADS: %d ==========\n\n", mode, num_threads);
-    printf("\n========== MODE: %s, THREADS: %d ==========\n\n", mode, num_threads);
+    fprintf(times, "\n========== MODE: %s, THREADS: %d ==========\n", mode, num_threads);
+    printf("\n========== MODE: %s, THREADS: %d ==========\n", mode, num_threads);
 
-    printf("%-20s %-16s %-s\n", "thread_id", "range", "execution_time [s]");
+    fprintf(times, "\n%-20s %-16s %-s\n", "thread_id", "range", "execution_time [s]");
+    printf("\n%-20s %-16s %-s\n", "thread_id", "range", "execution_time [s]");
 
     double *res;
     for (int t_num = 0; t_num < num_threads; ++t_num) {
