@@ -1,0 +1,14 @@
+Przykład użycia:
+
+make all
+./server 5000 /tmp/server
+
+w oddzielnych terminalach:
+./client gracz1 local /tmp/server
+./client gracz2 network 5000
+./client gracz3 network 5000
+./client gracz4 local /tmp/server
+
+
+Można zwiększyć maksymalną liczbę graczy w helper.h (#define MAX_CLIENTS)
+Domyślnie jest ustawiona na 4 żeby można było wygodnie testować
